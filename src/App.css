@@ -5,20 +5,19 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
+.photo {
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
+.photo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
+.photo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
+@keyframes photo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -28,8 +27,8 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  a:nth-of-type(2) .photo {
+    animation: photo-spin infinite 20s linear;
   }
 }
 
@@ -49,6 +48,6 @@ footer {
   height: 2.5rem;
 }
 
-footer p {
+p, h1 {
   color: #162327;
 }
