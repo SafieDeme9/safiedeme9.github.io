@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { LuSun, LuMoon } from "react-icons/lu";
 
 export default function Header() {
     const [nav, setNav] = useState(false);
     return(
         <>
         <header>
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 shadow">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
+      <nav className="bg-white border-gray-200 lg:px-6 py-2.5 shadow">
+        <div className="flex flex-wrap justify-between items-center mx-auto">
           <a href="#">
-            <span className="self-center text-xl font-semibold whitespace-nowrap">
+            <span className="items-start text-xl font-semibold whitespace-nowrap">
               SD
             </span>
           </a>
@@ -20,9 +21,7 @@ export default function Header() {
                 : "hidden md:flex gap-6"
             }`}
           >
-            <ul className
-
-="flex flex-col md:flex-row md:gap-8 gap-0">
+            <ul className="absolute left-1/2 transform -translate-x-1/2 flex flex-col md:flex-row md:gap-8 gap-0">
               <li>
                 <a
                   href="#"
@@ -48,13 +47,15 @@ export default function Header() {
                 </a>
               </li>
             </ul>
-            <button
-              className="mt-4 md:mt-0 rounded-full bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-            >
-              Contact me
+          <button className="bg-transparent hover:bg-yellow-300 hover:text-white rounded-lg text-black">
+              <LuSun />
             </button>
+            <button className="bg-transparent hover:bg-slate-700 hover:text-white  rounded-lg text-black">
+              <LuMoon />
+            </button>
+          
           </div>
+          
 
           <div className="md:hidden flex items-center lg:order-1">
             <button
