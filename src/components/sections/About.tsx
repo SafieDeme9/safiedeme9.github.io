@@ -13,7 +13,8 @@ export default function About() {
                 Resume 
                 <TbFileDownload />
             </a>
-            <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-blue-500 hover:text-white focus:ring-4 focus:ring-gray-100">
+            <a href="#" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg
+            hover:bg-blue-500 hover:text-white shadow-blue-500 focus:ring-4 focus:ring-gray-100">
                 Contact me
             </a> 
         </div>
