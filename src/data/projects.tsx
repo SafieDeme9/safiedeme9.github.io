@@ -15,7 +15,16 @@ const projects= [
     tech: ["Python", "Docker", "HuggingFace"],
     git: "https://github.com/SafieDeme9/safchat",
     link: "https://t.me/safchatbot_bot",
-    pic: "",
+    pic: "src/assets/safbot.png",
+  },
+  {
+    name: "Tictactoe",
+    desc:
+      "A simple tictactoe game I coded to play with my little brother.",
+    tech: ["Python", "Pygame"],
+    git: "https://github.com/SafieDeme9/tictactoe",
+    link: "https://replit.com/@SafietouDeme/tictactoe",
+    pic: "src/assets/tictactoe.png",
   },
 ];
 

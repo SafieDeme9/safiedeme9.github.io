@@ -14,7 +14,7 @@ export default function ProjectCard(Project: any) {
                 alt="Project image"/>
               </div>
             <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
-              <h3 className="mb-4 block text-xl font-semibold hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]"
+              <h3 className="pt-5 text-[14px] font-bold text-gray-600 block"
               >
                   {Project.name}
               </h3>
@@ -26,6 +26,7 @@ export default function ProjectCard(Project: any) {
                   href={Project.git ? Project.git : "#"}
                   className="inline-block rounded-full border border-gray-3 px-7 py-2 text-base font-medium text-body-color transition 
                   hover:border-primary hover:bg-primary"
+                  target="_blank"
                 >
                   <FaGithub />
                 </a>
@@ -33,6 +34,7 @@ export default function ProjectCard(Project: any) {
                   href={Project.link ? Project.link : "#"}
                   className="inline-block rounded-full border border-gray-3 px-7 py-2 text-base font-medium text-body-color transition 
                   hover:border-primary hover:bg-primary"
+                  target="_blank"
                 >
                   <FiExternalLink />
                 </a>
