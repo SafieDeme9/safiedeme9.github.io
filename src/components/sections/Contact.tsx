@@ -5,10 +5,10 @@ import { MdMailOutline } from "react-icons/md";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#E3E3E3] dark:bg-gray-900 py-20 px-4">
+    <section id="Contact" className="bg-[#E3E3E3] dark:bg-gray-800 py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">
+          <h2 className="text-4xl font-bold text-blue-500 dark:text-white mb-2">
             CONTACT
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300">
