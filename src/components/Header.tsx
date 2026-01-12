@@ -1,12 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LuSun, LuMoon } from "react-icons/lu";
 
 export default function Header() {
     const [nav, setNav] = useState(false);
-    return(
-        <>
-        <header className="bg-white dark:bg-gray-900 dark:text-white shadow-md sticky top-0 left-0 w-full transition-all duration-300">
-      <nav className="border-gray-200 lg:px-6 py-2.5 shadow">
+    const [theme, setTheme] = useState("light");
+    
+    useEffect(() => {
+      const root = document.documentElement;
+      if (theme === "dark") {
+          root.classList.add("dark");
+      } else {
+          root.classList.remove("dark");
+      }
+      localStorage.setItem("theme", theme);
+  }, [theme]);
+  
+  // Initialize theme from localStorage
+  useEffect(() => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+          setTheme(savedTheme);
+      }
+  }, []);
+  
+  const toggleTheme = () => {
+      setTheme(prev => prev === "light" ? "dark" : "light");
+  };
+
+  return (
+    <>
+      <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 dark:text-white shadow-md w-full">
+        <nav className="border-gray-200 lg:px-6 py-2.5 shadow">
         <div className="flex flex-wrap justify-between items-center mx-auto">
           <a href="#">
             <span className="items-start text-xl font-semibold whitespace-nowrap dark:text-white ">
@@ -17,15 +41,15 @@ export default function Header() {
           <div
             className={`flex-col md:flex md:flex-row items-center w-full md:w-auto md:order-2 transition-all duration-300 ${
               nav
-                ? "absolute top-14 left-0 w-full bg-white dark:bg-gray-900 dark:text-white shadow-md p-4 md:relative md:top-0 md:w-auto md:bg-transparent md:shadow-none"
+                ? "top-14 left-0 w-full bg-white dark:bg-gray-900 dark:text-white shadow-md p-4 md:relative md:top-0 md:w-auto md:bg-transparent md:shadow-none"
                 : "hidden md:flex gap-6"
             }`}
           >
-            <ul className="absolute left-1/2 transform -translate-x-1/2 flex flex-col md:flex-row md:gap-8 gap-0">
+            <ul className="flex flex-col md:flex-row md:gap-8 gap-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
               <li>
                 <a
-                  href="#"
-                  className="block py-2 pr-4 pl-3 text-gray-700 dark:text-white rounded md:bg-transparent md:text-primary-700 md:p-0"
+                  href="#About"
+                  className=" py-2 pr-4 pl-3 text-gray-700 dark:text-white rounded md:bg-transparent md:text-primary-700 md:p-0"
                 >
                   About me
                 </a>
@@ -33,25 +57,25 @@ export default function Header() {
               <li>
                 <a
                   href="#Projects"
-                  className="block py-2 pr-4 pl-3 text-gray-700 dark:text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+                  className="py-2 pr-4 pl-3 text-gray-700 dark:text-white border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
                 >
                   Projects
                 </a>
               </li>
               <li>
                 <a
-                  href="#Contact"
-                  className="block py-2 pr-4 pl-3 text-gray-700 dark:text-white  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
+                  href="https://drive.google.com/file/d/1P6KMIizBk13SgCzxZytd_UhvqIlL44V6/view?usp=sharing" target="_blank"
+                  className="py-2 pr-4 pl-3 text-gray-700 dark:text-white  border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0"
                 >
                   Experience
                 </a>
               </li>
             </ul>
-          <button className="bg-transparent hover:bg-yellow-300 hover:text-white rounded-lg text-black dark:text-white ">
-              <LuSun />
-            </button>
-            <button className="bg-transparent hover:bg-slate-700 hover:text-white  rounded-lg text-black dark:text-white ">
-              <LuMoon />
+            <button 
+                onClick={toggleTheme}
+                className="p-2 rounded-lg dark:text-yellow-400 dark:bg-slate-600 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+                {theme === "light" ? <LuMoon size={20} /> : <LuSun size={20} />}
             </button>
           
           </div>
