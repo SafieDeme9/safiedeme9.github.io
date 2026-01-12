@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { LuSun, LuMoon } from "react-icons/lu";
 
 export default function Header() {

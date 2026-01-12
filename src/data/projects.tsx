@@ -6,7 +6,7 @@ const projects= [
     tech: ["HTML", "CSS", "React Js"],
     git: "https://github.com/SafieDeme9/quizapp",
     link: "https://ndqx4r.csb.app/",
-    pic: "src/assets/quizapp.png",
+    pic: "../assets/quizapp.png",
   },
   {
     name: "Safchat",
