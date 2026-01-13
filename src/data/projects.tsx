@@ -6,7 +6,7 @@ const projects= [
     tech: ["HTML", "CSS", "React Js"],
     git: "https://github.com/SafieDeme9/quizapp",
     link: "https://ndqx4r.csb.app/",
-    pic: "/quizapp.png",
+    pic: "/portofolio/images/quizapp.png",
   },
   {
     name: "Safchat",
@@ -15,7 +15,7 @@ const projects= [
     tech: ["Python", "Docker", "HuggingFace"],
     git: "https://github.com/SafieDeme9/safchat",
     link: "https://t.me/safchatbot_bot",
-    pic: "/safbot.png",
+    pic: "/portofolio/images/safbot.png",
   },
   {
     name: "Tictactoe",
@@ -24,7 +24,7 @@ const projects= [
     tech: ["Python", "Pygame"],
     git: "https://github.com/SafieDeme9/tictactoe",
     link: "https://replit.com/@SafietouDeme/tictactoe",
-    pic: "/tictactoe.png",
+    pic: "/portofolio/images/tictactoe.png",
   },
 ];
 
