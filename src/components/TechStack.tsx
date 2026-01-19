@@ -19,7 +19,7 @@ export default function TechStack() {
     return (
       <div className="py-6">
         <div className="flex items-center flex-wrap gap-4">
-          <div className="flex flex-row-1 gap-3 items-center">
+          <div className="flex flex-row-1 gap-3 items-center min-w-0">
           <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white whitespace-nowrap">
             Tech Stack:
           </h3>
