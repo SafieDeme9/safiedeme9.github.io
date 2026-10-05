@@ -46,7 +46,14 @@ export const projects: Project[] = [
       it: "Dashboard in Next.js per lo staff di WASSOR: moderazione dei post della community prima della pubblicazione, gestione delle richieste sui diritti dei dati e registro delle attività dello staff, con accesso tramite Microsoft Entra ID e ruoli.",
     },
     tech: ["Next.js", "Tailwind CSS", "Supabase"],
-    // TODO(safie): add a dashboard screenshot (sample data only).
+    // From the redesign board (placeholder figures, no real data).
+    image: {
+      src: "/images/dashboard.webp",
+      srcSet: "/images/dashboard-600.webp 600w, /images/dashboard.webp 1200w",
+      alt: { en: "Design of the Maguette staff dashboard home screen", it: "Design della schermata principale della dashboard di Maguette" },
+      width: 1200,
+      height: 803,
+    },
   },
   {
     name: "wassor.org",
