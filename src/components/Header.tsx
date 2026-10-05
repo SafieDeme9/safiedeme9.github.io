@@ -54,7 +54,7 @@ export default function Header() {
                         <button
                             onClick={toggleTheme}
                             className="p-2 rounded-lg dark:text-yellow-400 dark:bg-slate-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                            aria-label="Toggle theme"
+                            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
                         >
                             {theme === "light" ? <LuMoon size={20} /> : <LuSun size={20} />}
                         </button>
@@ -63,14 +63,16 @@ export default function Header() {
                             type="button"
                             className="md:hidden p-2 text-gray-500 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
                             aria-label="Toggle menu"
+                            aria-expanded={nav}
+                            aria-controls="mobile-nav"
                             onClick={() => setNav(!nav)}
                         >
                             {nav ? (
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                                 </svg>
                             ) : (
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                                 </svg>
                             )}
@@ -79,7 +81,7 @@ export default function Header() {
                 </div>
 
                 {nav && (
-                    <div className="md:hidden mt-3 pb-3 border-t border-gray-200 dark:border-gray-700">
+                    <div id="mobile-nav" className="md:hidden mt-3 pb-3 border-t border-gray-200 dark:border-gray-700">
                         <ul className="flex flex-col gap-1 pt-3">
                             <li>
                                 <a href="#About" onClick={closeNav} className="block px-3 py-2 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
