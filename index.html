@@ -2,9 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/woman.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Safie's portofolio</title>
+    <title>Safietou Deme · Fullstack Developer</title>
+    <meta name="description" content="Portfolio of Safietou Deme, a fullstack developer in Brescia, Italy, building web and mobile products with React, Next.js, React Native / Expo and Supabase." />
+    <link rel="canonical" href="https://safietoudeme.com/" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- The hero photo is the LCP element; React renders it, so let the browser fetch it early. -->
+    <link rel="preload" as="image" href="/images/safie.webp" imagesrcset="/images/safie-245.webp 245w, /images/safie.webp 490w" imagesizes="(min-width: 1024px) 320px, 220px" fetchpriority="high" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://safietoudeme.com/" />
+    <meta property="og:title" content="Safietou Deme · Fullstack Developer" />
+    <meta property="og:description" content="Web and mobile products with React, Next.js, React Native / Expo and Supabase. Computer Science Engineering student at the University of Brescia." />
+    <meta property="og:image" content="https://safietoudeme.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Safietou Deme, Fullstack Developer, Brescia, Italy" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="it_IT" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Safietou Deme · Fullstack Developer" />
+    <meta name="twitter:description" content="Web and mobile products with React, Next.js, React Native / Expo and Supabase. Computer Science Engineering student at the University of Brescia." />
+    <meta name="twitter:image" content="https://safietoudeme.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Safietou Deme, Fullstack Developer, Brescia, Italy" />
+    <script>
+      // Apply the saved/system theme before first paint to avoid a light-mode flash.
+      // Mirrors getInitialTheme() in src/lib/theme.ts.
+      (function () {
+        var theme = "light";
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") theme = saved;
+          else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+        } catch (e) {}
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

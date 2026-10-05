@@ -1,85 +1,47 @@
 import { GrLinkedin } from "react-icons/gr";
 import { FaGithub } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
+import { useLanguage } from "../../i18n/language";
+import SectionHeading from "../SectionHeading";
+import Reveal from "../Reveal";
+
+const EMAIL = "sdeme1201@gmail.com";
+
+const socials = [
+  { href: "https://www.linkedin.com/in/sdeme9/", label: "LinkedIn", Icon: GrLinkedin },
+  { href: "https://github.com/SafieDeme9", label: "GitHub", Icon: FaGithub },
+];
 
 export default function Contact() {
+  const { t } = useLanguage();
   return (
-    <section id="Contact" className="bg-[#E3E3E3] dark:bg-gray-800 py-16 px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto">
-
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 dark:text-white mb-2">
-            CONTACT
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-            Get in Touch
-          </p>
-        </div>
-
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-8">
-
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full shrink-0">
-                <FaLocationDot className="text-xl text-gray-700 dark:text-gray-300" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-white">Location</h3>
-                <p className="text-gray-600 dark:text-gray-400">Brescia, Italy</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full shrink-0">
-                <MdMailOutline className="text-xl text-gray-700 dark:text-gray-300" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-white">Mail</h3>
-                <a
-                  href="mailto:sdeme1201@gmail.com"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 break-all"
-                >
-                  sdeme1201@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">
-              Connect with me
-            </h3>
-            <div className="flex gap-4">
+    <section id="Contact" aria-labelledby="contact-heading" className="bg-ink py-20 text-gray-50 transition-colors duration-500 dark:bg-gray-950 sm:py-[110px]">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <SectionHeading id="contact-heading" eyebrow={t.contact.eyebrow} title={t.contact.heading} tone="inverted" />
+        <Reveal>
+          <p className="-mt-4 mb-8 text-lg text-gray-300">{t.contact.text}</p>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="inline-flex min-h-[60px] max-w-full items-center gap-3 break-all rounded-[14px] bg-blue-600 px-6 text-lg font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-700 sm:px-7 sm:text-xl"
+          >
+            <MdMailOutline className="shrink-0 text-2xl" aria-hidden="true" />
+            {EMAIL}
+          </a>
+          <div className="mt-5 flex gap-2.5">
+            {socials.map(({ href, label, Icon }) => (
               <a
-                href="https://www.linkedin.com/in/sdeme9/"
+                key={label}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20 hover:scale-110 transition-all duration-300"
-                aria-label="LinkedIn"
+                aria-label={label}
+                className="flex h-12 w-12 items-center justify-center rounded-xl border border-gray-700 text-xl text-gray-50 transition hover:-translate-y-0.5 hover:bg-gray-800"
               >
-                <GrLinkedin className="text-2xl text-blue-500 dark:text-gray-300" />
+                <Icon aria-hidden="true" />
               </a>
-              <a
-                href="https://github.com/SafieDeme9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 hover:scale-110 transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <FaGithub className="text-2xl text-gray-700 dark:text-gray-300" />
-              </a>
-              <a
-                href="mailto:sdeme1201@gmail.com"
-                className="p-4 bg-gray-100 dark:bg-gray-700 rounded-full hover:bg-red-100 dark:hover:bg-red-900/20 hover:scale-110 transition-all duration-300"
-                aria-label="Email"
-              >
-                <MdMailOutline className="text-2xl text-gray-700 dark:text-gray-300" />
-              </a>
-            </div>
+            ))}
           </div>
-
-        </div>
+        </Reveal>
       </div>
     </section>
   );
