@@ -3,6 +3,7 @@ import { FaGithub, FaHtml5, FaCss3Alt, FaReact, FaPython, FaDocker, FaLock } fro
 import { FiExternalLink } from "react-icons/fi";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiHuggingface } from "react-icons/si";
 import type { Project } from "../types/project";
+import { useLanguage } from "../i18n/language";
 
 const techIcons: { [key: string]: JSX.Element } = {
   "HTML": <FaHtml5 className="text-orange-500" />,
@@ -25,6 +26,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const { name, description, tech, repoUrl, liveUrl, image } = project;
+  const { t } = useLanguage();
 
   return (
     <article className="w-full bg-white dark:bg-gray-700 dark:text-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 transform hover:-translate-y-1">
@@ -46,17 +48,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <p className="mb-4 text-base leading-relaxed text-gray-600 dark:text-white">{description}</p>
 
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-gray-700 dark:text-white mb-3">Tech Stack:</h4>
+          <h4 className="text-sm font-semibold text-gray-700 dark:text-white mb-3">{t.projects.techStack}</h4>
           <ul className="flex flex-wrap justify-center gap-3">
-            {tech.map((t) => (
+            {tech.map((item) => (
               <li
-                key={t}
+                key={item}
                 className="flex items-center gap-1 px-3 py-1.5 bg-gray-50 dark:bg-gray-700 rounded-lg shadow-sm"
               >
                 <span className="text-lg" aria-hidden="true">
-                  {techIcons[t] ?? <span className="block w-4 h-4 bg-gray-300 rounded-full" />}
+                  {techIcons[item] ?? <span className="block w-4 h-4 bg-gray-300 rounded-full" />}
                 </span>
-                <span className="text-xs font-medium text-gray-700 dark:text-white ml-1">{t}</span>
+                <span className="text-xs font-medium text-gray-700 dark:text-white ml-1">{item}</span>
               </li>
             ))}
           </ul>
@@ -66,20 +68,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {repoUrl ? (
             <a href={repoUrl} className={linkClass} target="_blank" rel="noopener noreferrer">
               <FaGithub className="text-lg" aria-hidden="true" />
-              Code
-              <span className="sr-only"> for {name} (opens in a new tab)</span>
+              {t.projects.code}
+              <span className="sr-only">: {name} ({t.projects.newTab})</span>
             </a>
           ) : project.private ? (
             <span className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 bg-gray-100 dark:bg-gray-600">
               <FaLock aria-hidden="true" />
-              Private repo
+              {t.projects.privateRepo}
             </span>
           ) : null}
           {liveUrl && (
             <a href={liveUrl} className={linkClass} target="_blank" rel="noopener noreferrer">
               <FiExternalLink className="text-lg" aria-hidden="true" />
-              Live Demo
-              <span className="sr-only"> of {name} (opens in a new tab)</span>
+              {t.projects.liveDemo}
+              <span className="sr-only">: {name} ({t.projects.newTab})</span>
             </a>
           )}
         </div>

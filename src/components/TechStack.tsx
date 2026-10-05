@@ -1,5 +1,6 @@
 import { FaHtml5, FaCss3Alt, FaReact, FaPython, FaDocker } from "react-icons/fa";
 import { SiTailwindcss, SiJavascript, SiTypescript, SiFlask, SiFastapi, SiMysql } from "react-icons/si";
+import { useLanguage } from "../i18n/language";
 
 const techStack = [
     { icon: <FaHtml5 />, name: "HTML", color: "text-orange-500", docs: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
@@ -16,10 +17,11 @@ const techStack = [
 ];
 
 export default function TechStack() {
+    const { t } = useLanguage();
     return (
         <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-lg font-bold text-gray-800 dark:text-white whitespace-nowrap mr-1">
-                Tech Stack:
+                {t.stack.heading}:
             </h3>
             {techStack.map((tech, index) => (
                 <a

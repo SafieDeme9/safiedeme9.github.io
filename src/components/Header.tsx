@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { LuSun, LuMoon } from "react-icons/lu";
 import { getInitialTheme, saveTheme, type Theme } from "../lib/theme";
+import { useLanguage } from "../i18n/language";
 
 export default function Header() {
     const [nav, setNav] = useState(false);
     const [theme, setTheme] = useState<Theme>(getInitialTheme);
+    const { lang, setLang, t } = useLanguage();
 
     useEffect(() => {
         document.documentElement.classList.toggle("dark", theme === "dark");
@@ -17,52 +19,56 @@ export default function Header() {
     };
 
     const closeNav = () => setNav(false);
+    const otherLang = lang === "en" ? "it" : "en";
+
+    const navItems = [
+        { href: "#About", label: t.nav.about },
+        { href: "#Projects", label: t.nav.projects },
+        { href: "#Experience", label: t.nav.experience },
+    ];
 
     return (
         <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 dark:text-white shadow-md w-full">
             <nav className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3">
                 <div className="flex items-center justify-between">
 
-                    <a href="#" className="text-xl font-semibold dark:text-white shrink-0">
+                    <a href="#About" className="text-xl font-semibold text-gray-900 dark:text-white shrink-0" aria-label={t.nav.home}>
                         SD
                     </a>
 
                     <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-                        <li>
-                            <a href="#About" className="py-2 text-gray-700 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                                About me
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#Projects" className="py-2 text-gray-700 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                                Projects
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://drive.google.com/file/d/1P6KMIizBk13SgCzxZytd_UhvqIlL44V6/view?usp=sharing"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="py-2 text-gray-700 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-                            >
-                                Experience
-                            </a>
-                        </li>
+                        {navItems.map((item) => (
+                            <li key={item.href}>
+                                <a href={item.href} className="py-2 text-gray-700 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
 
                     <div className="flex items-center gap-2">
                         <button
-                            onClick={toggleTheme}
-                            className="p-2 rounded-lg dark:text-yellow-400 dark:bg-slate-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+                            type="button"
+                            onClick={() => setLang(otherLang)}
+                            className="px-2 py-1.5 text-sm font-semibold rounded-lg text-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                            aria-label={t.nav.switchLang}
                         >
-                            {theme === "light" ? <LuMoon size={20} /> : <LuSun size={20} />}
+                            <span lang={otherLang}>{otherLang.toUpperCase()}</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={toggleTheme}
+                            className="p-2 rounded-lg text-gray-700 dark:text-yellow-400 dark:bg-slate-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                            aria-label={theme === "light" ? t.nav.toDark : t.nav.toLight}
+                        >
+                            {theme === "light" ? <LuMoon size={20} aria-hidden="true" /> : <LuSun size={20} aria-hidden="true" />}
                         </button>
 
                         <button
                             type="button"
                             className="md:hidden p-2 text-gray-500 rounded-lg hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition-colors"
-                            aria-label="Toggle menu"
+                            aria-label={nav ? t.nav.closeMenu : t.nav.openMenu}
                             aria-expanded={nav}
                             aria-controls="mobile-nav"
                             onClick={() => setNav(!nav)}
@@ -83,27 +89,13 @@ export default function Header() {
                 {nav && (
                     <div id="mobile-nav" className="md:hidden mt-3 pb-3 border-t border-gray-200 dark:border-gray-700">
                         <ul className="flex flex-col gap-1 pt-3">
-                            <li>
-                                <a href="#About" onClick={closeNav} className="block px-3 py-2 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                                    About me
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#Projects" onClick={closeNav} className="block px-3 py-2 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                                    Projects
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://drive.google.com/file/d/1P6KMIizBk13SgCzxZytd_UhvqIlL44V6/view?usp=sharing"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={closeNav}
-                                    className="block px-3 py-2 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                                >
-                                    Experience
-                                </a>
-                            </li>
+                            {navItems.map((item) => (
+                                <li key={item.href}>
+                                    <a href={item.href} onClick={closeNav} className="block px-3 py-2 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 )}
