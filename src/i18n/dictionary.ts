@@ -14,7 +14,9 @@ const en = {
     },
     hero: {
         greeting: "Hi, I'm Safietou 👋",
-        tagline: "I'm a computer science student who likes exploring her creative mind and building cool things.",
+        tagline:
+            "I build web and mobile products: React and Next.js on the web, React Native / Expo on mobile, Supabase behind them. Computer Science Engineering student at the University of Brescia, currently leading development of a mental-health app for young people in Senegal.",
+        location: "Brescia, Italy",
         resume: "Resume",
         contact: "Contact me",
         photoAlt: "Photo of Safietou",
@@ -75,7 +77,9 @@ const it: Dictionary = {
     },
     hero: {
         greeting: "Ciao, sono Safietou 👋",
-        tagline: "Sono una studentessa di informatica a cui piace esplorare la propria creatività e costruire cose interessanti.",
+        tagline:
+            "Sviluppo prodotti web e mobile: React e Next.js per il web, React Native / Expo per il mobile, con Supabase come backend. Studentessa di Ingegneria Informatica all'Università di Brescia, attualmente guido lo sviluppo di un'app per la salute mentale dei giovani in Senegal.",
+        location: "Brescia, Italia",
         resume: "Curriculum",
         contact: "Contattami",
         photoAlt: "Foto di Safietou",

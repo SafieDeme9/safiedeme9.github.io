@@ -1,21 +1,8 @@
-import type { JSX } from "react";
-import { FaGithub, FaHtml5, FaCss3Alt, FaReact, FaPython, FaDocker, FaLock } from "react-icons/fa";
+import { FaGithub, FaLock } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiHuggingface } from "react-icons/si";
+import TechBadge from "./TechBadge";
 import type { Project } from "../types/project";
 import { useLanguage } from "../i18n/language";
-
-const techIcons: { [key: string]: JSX.Element } = {
-  "HTML": <FaHtml5 className="text-orange-500" />,
-  "CSS": <FaCss3Alt className="text-blue-500" />,
-  "React": <FaReact className="text-cyan-400" />,
-  "JavaScript": <SiJavascript className="text-yellow-500" />,
-  "TypeScript": <SiTypescript className="text-blue-600" />,
-  "Tailwind": <SiTailwindcss className="text-cyan-500" />,
-  "Python": <FaPython className="text-blue-700" />,
-  "Docker": <FaDocker className="text-blue-400" />,
-  "HuggingFace": <SiHuggingface className="text-yellow-600" />,
-};
 
 const linkClass =
   "flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white transition hover:border-gray-400 hover:bg-gray-50 hover:text-gray-900";
@@ -49,17 +36,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="mb-6">
           <h4 className="text-sm font-semibold text-gray-700 dark:text-white mb-3">{t.projects.techStack}</h4>
-          <ul className="flex flex-wrap justify-center gap-3">
+          <ul className="flex flex-wrap justify-center gap-2">
             {tech.map((item) => (
-              <li
-                key={item}
-                className="flex items-center gap-1 px-3 py-1.5 bg-gray-50 dark:bg-gray-700 rounded-lg shadow-sm"
-              >
-                <span className="text-lg" aria-hidden="true">
-                  {techIcons[item] ?? <span className="block w-4 h-4 bg-gray-300 rounded-full" />}
-                </span>
-                <span className="text-xs font-medium text-gray-700 dark:text-white ml-1">{item}</span>
-              </li>
+              <TechBadge key={item} name={item} size="sm" />
             ))}
           </ul>
         </div>

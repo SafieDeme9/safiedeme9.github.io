@@ -1,4 +1,5 @@
 import { TbFileDownload } from "react-icons/tb";
+import { FaLocationDot } from "react-icons/fa6";
 import TechStack from "../TechStack";
 import { useLanguage } from "../../i18n/language";
 
@@ -22,8 +23,11 @@ export default function About() {
                         <h1 className="mb-4 text-2xl sm:text-4xl xl:text-6xl font-bold tracking-tight leading-tight text-[#162327] dark:text-white">
                             {t.hero.greeting}
                         </h1>
-                        <p className="mb-6 font-light text-sm sm:text-lg lg:text-xl text-[#162327] dark:text-white max-w-xl">
+                        <p className="mb-3 font-light text-sm sm:text-lg lg:text-xl text-[#162327] dark:text-white max-w-2xl">
                             {t.hero.tagline}
+                        </p>
+                        <p className="mb-6 inline-flex items-center gap-1.5 text-sm sm:text-base text-gray-700 dark:text-gray-300">
+                            <FaLocationDot aria-hidden="true" /> {t.hero.location}
                         </p>
                         <div className="flex flex-wrap justify-center gap-3 mb-10">
                             <a
