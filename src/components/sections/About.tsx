@@ -6,11 +6,14 @@ export default function About() {
         <section id="About" className="bg-[#E3E3E3] dark:bg-gray-800">
             <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:py-12">
                 <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-8 lg:gap-12">
-                    <div className="flex lg:hidden flex-shrink-0">
+                    <div className="flex flex-shrink-0 lg:order-last">
                         <img
-                            src="/images/safie.png"
+                            src="/images/safie.webp"
                             alt="Photo of Safietou"
-                            className="photo w-48 sm:w-56 h-auto object-contain"
+                            width={490}
+                            height={698}
+                            fetchPriority="high"
+                            className="photo w-48 sm:w-56 lg:w-80 xl:w-96 h-auto object-contain"
                         />
                     </div>
                     <div className="flex-1 flex flex-col items-center text-center">
@@ -36,13 +39,6 @@ export default function About() {
                                 Contact me
                             </a>
                         </div>
-                    </div>
-                    <div className="hidden lg:flex flex-shrink-0">
-                        <img
-                            src="/images/safie.png"
-                            alt="Photo of Safietou"
-                            className="photo w-80 xl:w-96 h-auto object-contain"
-                        />
                     </div>
                 </div>
                 <TechStack />

@@ -8,7 +8,7 @@ const projects: Project[] = [
     tech: ["HTML", "CSS", "React"],
     repoUrl: "https://github.com/SafieDeme9/quizapp",
     liveUrl: "https://ndqx4r.csb.app/",
-    image: { src: "/images/quizapp.png", alt: "Screenshot of QuizApp", width: 1920, height: 816 },
+    image: { src: "/images/quizapp.webp", alt: "Screenshot of QuizApp", width: 1200, height: 510 },
   },
   {
     name: "Safchat",
@@ -17,7 +17,7 @@ const projects: Project[] = [
     tech: ["Python", "Docker", "HuggingFace"],
     repoUrl: "https://github.com/SafieDeme9/safchat",
     liveUrl: "https://t.me/safchatbot_bot",
-    image: { src: "/images/safbot.png", alt: "Screenshot of the Safchat Telegram chatbot", width: 1915, height: 1004 },
+    image: { src: "/images/safbot.webp", alt: "Screenshot of the Safchat Telegram chatbot", width: 1200, height: 629 },
   },
   {
     name: "Tictactoe",
@@ -26,7 +26,7 @@ const projects: Project[] = [
     tech: ["Python", "Pygame"],
     repoUrl: "https://github.com/SafieDeme9/tictactoe",
     liveUrl: "https://replit.com/@SafietouDeme/tictactoe",
-    image: { src: "/images/tictactoe.png", alt: "Screenshot of the Tictactoe game", width: 1290, height: 756 },
+    image: { src: "/images/tictactoe.webp", alt: "Screenshot of the Tictactoe game", width: 1200, height: 703 },
   },
 ];
 
