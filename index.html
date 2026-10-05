@@ -11,6 +11,8 @@
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- The hero photo is the LCP element; React renders it, so let the browser fetch it early. -->
+    <link rel="preload" as="image" href="/images/safie.webp" imagesrcset="/images/safie-245.webp 245w, /images/safie.webp 490w" imagesizes="(min-width: 1024px) 320px, 220px" fetchpriority="high" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://safietoudeme.com/" />
