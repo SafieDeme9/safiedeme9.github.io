@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import TechStack from "../TechStack";
 import { useLanguage } from "../../i18n/language";
 
-const RESUME_URL = "https://drive.google.com/file/d/1P6KMIizBk13SgCzxZytd_UhvqIlL44V6/view?usp=sharing";
+const RESUME_URL = "/cv-safietou-deme.pdf";
 
 /** Staggered entrance; see .enter-rise / .enter-slide in index.css. */
 const delay = (ms: number) => ({ animationDelay: `${ms}ms` });

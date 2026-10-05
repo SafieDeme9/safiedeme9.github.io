@@ -63,7 +63,7 @@ const en = {
 
 export type Dictionary = typeof en;
 
-// TODO(safie): review the Italian copy (machine-drafted).
+// Italian copy reviewed by Safietou.
 const it: Dictionary = {
     nav: {
         home: "Safietou Deme, torna all'inizio",
