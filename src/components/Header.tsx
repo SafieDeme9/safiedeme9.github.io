@@ -32,8 +32,8 @@ export default function Header() {
             <nav className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3">
                 <div className="flex items-center justify-between">
 
-                    <a href="#About" className="text-xl font-semibold text-gray-900 dark:text-white shrink-0" aria-label={t.nav.home}>
-                        SD
+                    <a href="#About" className="text-xl font-semibold text-gray-900 dark:text-white shrink-0">
+                        SD<span className="sr-only">: {t.nav.home}</span>
                     </a>
 
                     <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
@@ -51,9 +51,9 @@ export default function Header() {
                             type="button"
                             onClick={() => setLang(otherLang)}
                             className="px-2 py-1.5 text-sm font-semibold rounded-lg text-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                            aria-label={t.nav.switchLang}
                         >
                             <span lang={otherLang}>{otherLang.toUpperCase()}</span>
+                            <span className="sr-only">: {t.nav.switchLang}</span>
                         </button>
 
                         <button

@@ -2,6 +2,8 @@ import type { Localized } from "../i18n/types";
 
 export type ProjectImage = {
     src: string;
+    /** Optional smaller variants, e.g. "/images/x-600.webp 600w, /images/x.webp 1200w". */
+    srcSet?: string;
     alt: Localized;
     width: number;
     height: number;

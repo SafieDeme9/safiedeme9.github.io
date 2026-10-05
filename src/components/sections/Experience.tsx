@@ -17,7 +17,7 @@ export default function Experience() {
     return (
         <section id="Experience" className="bg-white dark:bg-gray-900 py-16 px-4 sm:px-6">
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 dark:text-white mb-10 text-center">
+                <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 dark:text-white mb-10 text-center">
                     {t.experience.heading}
                 </h2>
                 <ol className="relative border-s-2 border-gray-300 dark:border-gray-600 space-y-10 text-left">

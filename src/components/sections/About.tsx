@@ -12,6 +12,8 @@ export default function About() {
                     <div className="flex flex-shrink-0 lg:order-last">
                         <img
                             src="/images/safie.webp"
+                            srcSet="/images/safie-245.webp 245w, /images/safie.webp 490w"
+                            sizes="(min-width: 1280px) 384px, (min-width: 1024px) 320px, (min-width: 640px) 224px, 192px"
                             alt={t.hero.photoAlt}
                             width={490}
                             height={698}

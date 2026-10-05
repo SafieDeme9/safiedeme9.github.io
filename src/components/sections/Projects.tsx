@@ -7,7 +7,7 @@ export default function Projects() {
     const { t } = useLanguage();
     return (
         <section id="Projects" className="bg-white pb-10 pt-20 dark:bg-gray-900 lg:pb-20 lg:pt-[120px] dark:text-white">
-            <h2 className="text-4xl text-blue-500 dark:text-white font-bold">{t.projects.heading}</h2>
+            <h2 className="text-4xl text-blue-700 dark:text-white font-bold">{t.projects.heading}</h2>
             <div className="max-w-screen-xl mx-auto px-3 sm:px-8">
                 <div className="mt-10">
                     <CaseStudy study={maguette} />

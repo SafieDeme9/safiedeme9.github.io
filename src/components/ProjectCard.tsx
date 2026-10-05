@@ -22,6 +22,8 @@ export default function ProjectCard({ project, compact = false }: ProjectCardPro
           <img
             className="w-full transition duration-200 ease-in-out transform hover:scale-105 rounded-lg h-48 object-cover"
             src={image.src}
+            srcSet={image.srcSet}
+            sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw"
             alt={l(image.alt)}
             width={image.width}
             height={image.height}

@@ -11,7 +11,7 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto">
 
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 dark:text-white mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 dark:text-white mb-2">
             {t.contact.heading}
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">

@@ -89,6 +89,7 @@ export const projects: Project[] = [
     liveUrl: "https://ndqx4r.csb.app/",
     image: {
       src: "/images/quizapp.webp",
+      srcSet: "/images/quizapp-600.webp 600w, /images/quizapp.webp 1200w",
       alt: { en: "Screenshot of QuizApp", it: "Schermata di QuizApp" },
       width: 1200,
       height: 510,
