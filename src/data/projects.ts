@@ -1,6 +1,14 @@
-import type { CaseStudy, Project } from "../types/project";
+import type { CaseStudy, Project, ProjectImage } from "../types/project";
 
-// Maguette's repositories are private: never add code links here, and only sanitised screenshots.
+const phoneShot = (file: string, en: string, it: string): ProjectImage => ({
+  src: `/images/maguette/${file}`,
+  alt: { en, it },
+  width: 600,
+  height: 1309,
+});
+
+// Maguette's repositories are private: never add code links here. Screenshots come from
+// the public prototype (sample data only), never from real users.
 export const maguette: CaseStudy = {
   name: "Maguette",
   tagline: {
@@ -11,72 +19,51 @@ export const maguette: CaseStudy = {
     en: "In development: Android and iOS test builds, not yet published on the app stores.",
     it: "In sviluppo: build di test Android e iOS, non ancora pubblicata sugli store.",
   },
+  // Source: Maguette repo, docs/APP.md and README.md.
   problem: {
-    en: "Maguette is a mobile app supporting the mental health of young people in Senegal. TODO(safie): 1–2 sentences on the problem it addresses (who it's for, what gap it fills).",
-    it: "Maguette è un'app mobile a sostegno della salute mentale dei giovani in Senegal. TODO(safie): 1–2 frasi sul problema che affronta.",
+    en: "Young people aged 10–24 in Senegal need a safe, private place to talk about how they feel, in their own language and culture. Maguette is an anonymous, chat-first companion with mood tracking, culturally rooted learning content and community wisdom, available in French, English and Arabic (Wolof planned), with a help button on every screen that works even offline.",
+    it: "I giovani tra i 10 e i 24 anni in Senegal hanno bisogno di uno spazio sicuro e riservato per parlare di come si sentono, nella propria lingua e cultura. Maguette è un compagno anonimo basato sulla chat, con monitoraggio dell'umore, contenuti educativi radicati nella cultura locale e saggezza della comunità, disponibile in francese, inglese e arabo (wolof in programma), con un pulsante di aiuto su ogni schermata che funziona anche offline.",
   },
   role: {
-    en: "Led and supervised development (AI-assisted). I wrote the specifications, made the architecture decisions and reviewed all of the generated code, then tested it and fixed bugs. I manage the Android and iOS test builds with EAS Build and turn requirements from the clinical, legal, content and operations teams into technical tasks.",
-    it: "Ho guidato e supervisionato lo sviluppo (AI-assisted): ho scritto le specifiche, preso le decisioni di architettura e revisionato tutto il codice generato, poi l'ho testato e ho corretto i bug. Gestisco le build di test Android e iOS con EAS Build e traduco in task tecnici i requisiti dei team clinico, legale, contenuti e operations.",
+    en: "I lead development: I wrote the specifications, made the architecture decisions, review every change, and test and fix bugs. I manage the Android and iOS test builds with EAS Build and turn requirements from the clinical, legal, content and operations teams into technical tasks.",
+    it: "Guido lo sviluppo: ho scritto le specifiche, preso le decisioni di architettura, revisiono ogni modifica, testo e correggo i bug. Gestisco le build di test Android e iOS con EAS Build e traduco in task tecnici i requisiti dei team clinico, legale, contenuti e operations.",
   },
-  stack: ["React Native", "Expo", "TypeScript", "Supabase", "EAS Build"],
+  stack: ["React Native", "Expo", "TypeScript", "Supabase"],
   prototypeUrl: "https://maguette-prototype.vercel.app/",
-  challenges: [
-    {
-      title: { en: "Offline and poor connectivity", it: "Connessione assente o instabile" },
-      body: {
-        en: "TODO(safie): what you did so the app works on unreliable mobile data.",
-        it: "TODO(safie): cosa hai fatto perché l'app funzioni con una connessione instabile.",
-      },
-    },
-    {
-      title: { en: "Authentication and privacy", it: "Autenticazione e privacy" },
-      body: {
-        en: "TODO(safie): how auth and data protection are handled for sensitive mental-health data.",
-        it: "TODO(safie): come sono gestite autenticazione e protezione di dati sensibili sulla salute mentale.",
-      },
-    },
-    {
-      title: { en: "Multilingual UI", it: "Interfaccia multilingue" },
-      body: {
-        en: "The interface is available in French, Arabic and English, with Wolof planned. TODO(safie): how you approached it (e.g. right-to-left layout for Arabic, translation workflow).",
-        it: "L'interfaccia è disponibile in francese, arabo e inglese, con il wolof in programma. TODO(safie): come l'hai affrontato.",
-      },
-    },
-    {
-      title: { en: "Accessibility", it: "Accessibilità" },
-      body: {
-        en: "TODO(safie): the accessibility decisions you made (e.g. font scaling, contrast, screen readers).",
-        it: "TODO(safie): le scelte di accessibilità che hai fatto.",
-      },
-    },
+  screenshots: [
+    phoneShot("maguette-language.webp", "Maguette: language selection screen", "Maguette: schermata di scelta della lingua"),
+    phoneShot("maguette-home.webp", "Maguette: home screen", "Maguette: schermata principale"),
+    phoneShot("maguette-mood.webp", "Maguette: mood trends screen", "Maguette: schermata dell'andamento dell'umore"),
   ],
-  // TODO(safie): add sanitised phone screenshots (no real user data) to public/images/maguette/.
-  screenshots: [],
 };
 
 export const projects: Project[] = [
   {
     name: "Maguette staff dashboard",
+    // Source: maguette_dashboard repo, README.md.
     description: {
-      en: "Next.js web dashboard for WASSOR staff: managing the content shown in the Maguette app, administering user and staff accounts, viewing usage reports, and handling support requests and moderation. Led and supervised development (AI-assisted).",
-      it: "Dashboard web in Next.js per lo staff di WASSOR: gestione dei contenuti dell'app Maguette, amministrazione degli account di utenti e staff, report di utilizzo, gestione delle richieste di supporto e moderazione. Sviluppo guidato e supervisionato da me (AI-assisted).",
+      en: "Next.js staff dashboard for WASSOR: moderating community posts before they're published, handling data-rights requests and keeping a staff audit log, behind Microsoft Entra ID sign-in with role-based access.",
+      it: "Dashboard in Next.js per lo staff di WASSOR: moderazione dei post della community prima della pubblicazione, gestione delle richieste sui diritti dei dati e registro delle attività dello staff, con accesso tramite Microsoft Entra ID e ruoli.",
     },
-    tech: ["Next.js", "Vercel"],
-    private: true,
-    // TODO(safie): add a sanitised dashboard screenshot (no real user data).
+    tech: ["Next.js", "Tailwind CSS", "Supabase"],
+    // TODO(safie): add a dashboard screenshot (sample data only).
   },
   {
     name: "wassor.org",
     description: {
-      en: "The WASSOR Womanity website, built with Next.js. I develop and maintain it, with preview and production deploys on Vercel from GitHub.",
-      it: "Il sito di WASSOR Womanity, realizzato in Next.js. Lo sviluppo e lo mantengo, con deploy di preview e produzione su Vercel da GitHub.",
+      en: "The WASSOR Womanity website, built with Next.js. I develop and maintain it, with preview and production deploys from GitHub.",
+      it: "Il sito di WASSOR Womanity, realizzato in Next.js. Lo sviluppo e lo mantengo, con deploy di preview e produzione da GitHub.",
     },
-    tech: ["Next.js", "Vercel"],
-    private: true,
+    tech: ["Next.js", "Tailwind CSS"],
     liveUrl: "https://www.wassor.org/",
     liveKind: "site",
-    // TODO(safie): add a screenshot of wassor.org.
+    image: {
+      src: "/images/wassor.webp",
+      srcSet: "/images/wassor-600.webp 600w, /images/wassor.webp 1280w",
+      alt: { en: "Screenshot of the wassor.org homepage", it: "Schermata della homepage di wassor.org" },
+      width: 1280,
+      height: 800,
+    },
   },
   {
     name: "QuizApp",
@@ -106,7 +93,6 @@ export const otherProjects: Project[] = [
     },
     tech: ["Python", "Docker", "HuggingFace"],
     repoUrl: "https://github.com/SafieDeme9/safchat",
-    liveUrl: "https://t.me/safchatbot_bot",
   },
   {
     name: "Tictactoe",

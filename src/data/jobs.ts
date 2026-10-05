@@ -1,6 +1,6 @@
 import type { Job } from "../types/job";
 
-// Source: Safietou's CV (cv_safietou_deme_adentis.pdf). Italian is from the CV; English is a translation.
+// Source: Safietou's CV (cv_safietou_deme_adentis.pdf). Italian follows the CV; English is a translation.
 const jobs: Job[] = [
   {
     company: "WASSOR Womanity",
@@ -10,10 +10,11 @@ const jobs: Job[] = [
     },
     location: { en: "Senegal, remote", it: "Senegal, da remoto" },
     start: { year: 2024, month: 12 },
+    tech: ["React Native", "Expo", "TypeScript", "Supabase", "Next.js", "Tailwind CSS", "Vercel", "GitHub Actions"],
     bullets: [
       {
-        en: "Lead development of Maguette, an Android/iOS mental-health app for young people in Senegal (React Native, Expo, TypeScript, Supabase), working AI-assisted: I define the architecture and specs, review the generated code, test and fix bugs.",
-        it: "Guido lo sviluppo di Maguette, app mobile Android/iOS per la salute mentale dei giovani in Senegal (React Native, Expo, TypeScript, Supabase), con approccio AI-assisted: definizione di architettura e specifiche, revisione del codice generato, test e correzione dei bug.",
+        en: "Lead development of Maguette, an Android/iOS mental-health app for young people in Senegal (React Native, Expo, TypeScript, Supabase), defining the architecture and specs, reviewing every change, testing and fixing bugs.",
+        it: "Guido lo sviluppo di Maguette, app mobile Android/iOS per la salute mentale dei giovani in Senegal (React Native, Expo, TypeScript, Supabase), definizione di architettura e specifiche, revisione di ogni modifica, test e correzione dei bug.",
       },
       {
         en: "Develop and maintain the Next.js staff dashboard and the wassor.org website, with preview and production deploys on Vercel from GitHub.",
@@ -35,6 +36,7 @@ const jobs: Job[] = [
     location: { en: "Manerbio (BS)", it: "Manerbio (BS)" },
     start: { year: 2024, month: 7 },
     end: { year: 2024, month: 11 },
+    tech: ["WordPress", "Joomla"],
     bullets: [
       {
         en: "Developed and maintained web applications; customised WordPress and Joomla sites.",

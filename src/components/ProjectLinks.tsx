@@ -1,4 +1,4 @@
-import { FaGithub, FaLock } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { useLanguage } from "../i18n/language";
 import type { Project } from "../types/project";
@@ -19,11 +19,6 @@ export default function ProjectLinks({ project }: { project: Project }) {
           {t.projects.code}
           <span className="sr-only">: {name} ({t.projects.newTab})</span>
         </a>
-      ) : project.private ? (
-        <span className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600">
-          <FaLock aria-hidden="true" />
-          {t.projects.privateRepo}
-        </span>
       ) : null}
       {liveUrl && (
         <a href={liveUrl} className={linkClass} target="_blank" rel="noopener noreferrer">

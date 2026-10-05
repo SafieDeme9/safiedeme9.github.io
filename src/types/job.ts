@@ -10,5 +10,6 @@ export type Job = {
     start: YearMonth;
     /** Omit for a current role. */
     end?: YearMonth;
+    tech: string[];
     bullets: Localized[];
 };

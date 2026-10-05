@@ -2,7 +2,6 @@ import type { CaseStudy as CaseStudyData } from "../types/project";
 import { useLanguage } from "../i18n/language";
 import TechBadge from "./TechBadge";
 import PhoneFrame from "./PhoneFrame";
-import { FaLock } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 
 export default function CaseStudy({ study }: { study: CaseStudyData }) {
@@ -23,9 +22,6 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
             <p className="mt-1 text-lg text-gray-700 dark:text-gray-200">{l(study.tagline)}</p>
             <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
                 <span>{l(study.status)}</span>
-                <span className="inline-flex items-center gap-1.5 rounded-md bg-gray-100 dark:bg-gray-600 px-2 py-0.5 font-medium">
-                    <FaLock aria-hidden="true" /> {t.projects.privateRepo}
-                </span>
             </p>
             {study.prototypeUrl && (
                 <a
@@ -60,17 +56,6 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
                     </section>
                 </div>
 
-                <section>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{t.caseStudy.challenges}</h4>
-                    <dl className="mt-2 space-y-4">
-                        {study.challenges.map((c) => (
-                            <div key={c.title.en} className="rounded-lg bg-white/70 dark:bg-gray-900/40 p-4">
-                                <dt className="font-medium text-gray-900 dark:text-white">{l(c.title)}</dt>
-                                <dd className="mt-1 text-sm text-gray-700 dark:text-gray-200">{l(c.body)}</dd>
-                            </div>
-                        ))}
-                    </dl>
-                </section>
             </div>
 
             {study.screenshots.length > 0 && (

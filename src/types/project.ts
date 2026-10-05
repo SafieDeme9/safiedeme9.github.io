@@ -15,8 +15,6 @@ export type Project = {
     tech: string[];
     /** Public source code. Omit when the code is not public. */
     repoUrl?: string;
-    /** The code exists but the repository is private; shows a "Private repo" badge instead of a Code button. */
-    private?: boolean;
     liveUrl?: string;
     /** "site" for a production website, "demo" (default) for a hosted demo. */
     liveKind?: "demo" | "site";
@@ -32,7 +30,6 @@ export type CaseStudy = {
     stack: string[];
     /** Public, clearly-labelled design prototype (sample data only). */
     prototypeUrl?: string;
-    challenges: { title: Localized; body: Localized }[];
-    /** Sanitised phone screenshots only; never real user data. */
+    /** Phone screenshots from the public prototype; never real user data. */
     screenshots: ProjectImage[];
 };
