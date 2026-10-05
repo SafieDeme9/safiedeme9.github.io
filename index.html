@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/woman.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safie's portofolio</title>
+    <script>
+      // Apply the saved/system theme before first paint to avoid a light-mode flash.
+      // Mirrors getInitialTheme() in src/lib/theme.ts.
+      (function () {
+        var theme = "light";
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") theme = saved;
+          else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+        } catch (e) {}
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

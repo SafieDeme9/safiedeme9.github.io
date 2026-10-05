@@ -1,27 +1,19 @@
 import { useState, useEffect } from "react";
 import { LuSun, LuMoon } from "react-icons/lu";
+import { getInitialTheme, saveTheme, type Theme } from "../lib/theme";
 
 export default function Header() {
     const [nav, setNav] = useState(false);
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
     useEffect(() => {
-        const root = document.documentElement;
-        if (theme === "dark") {
-            root.classList.add("dark");
-        } else {
-            root.classList.remove("dark");
-        }
-        localStorage.setItem("theme", theme);
+        document.documentElement.classList.toggle("dark", theme === "dark");
     }, [theme]);
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) setTheme(savedTheme);
-    }, []);
-
     const toggleTheme = () => {
-        setTheme(prev => prev === "light" ? "dark" : "light");
+        const next: Theme = theme === "light" ? "dark" : "light";
+        setTheme(next);
+        saveTheme(next);
     };
 
     const closeNav = () => setNav(false);
