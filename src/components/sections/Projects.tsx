@@ -1,28 +1,31 @@
-import { maguette, otherProjects, projects } from "../../data/projects"
-import ProjectCard from "../ProjectCard"
-import CaseStudy from "../CaseStudy"
-import { useLanguage } from "../../i18n/language"
+import { maguette, otherProjects, projects } from "../../data/projects";
+import ProjectCard from "../ProjectCard";
+import CaseStudy from "../CaseStudy";
+import SectionHeading from "../SectionHeading";
+import Reveal from "../Reveal";
+import { useLanguage } from "../../i18n/language";
 
 export default function Projects() {
     const { t } = useLanguage();
     return (
-        <section id="Projects" className="bg-white pb-10 pt-20 dark:bg-gray-900 lg:pb-20 lg:pt-[120px] dark:text-white">
-            <h2 className="text-4xl text-blue-700 dark:text-white font-bold">{t.projects.heading}</h2>
-            <div className="max-w-screen-xl mx-auto px-3 sm:px-8">
-                <div className="mt-10">
-                    <CaseStudy study={maguette} />
-                </div>
+        <section id="Projects" aria-labelledby="projects-heading" className="bg-ground py-[72px] transition-colors duration-500 dark:bg-gray-800 sm:py-[104px]">
+            <div className="mx-auto max-w-5xl px-5 sm:px-8">
+                <SectionHeading id="projects-heading" eyebrow={t.projects.eyebrow} title={t.projects.heading} />
 
-                <div className="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                    {projects.map((project) => (
-                        <ProjectCard key={project.name} project={project} />
+                <CaseStudy study={maguette} />
+
+                <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {projects.map((project, i) => (
+                        <ProjectCard key={project.name} project={project} delay={i * 100} />
                     ))}
                 </div>
 
-                <h3 className="mt-16 text-2xl font-bold text-gray-800 dark:text-white">{t.projects.other}</h3>
-                <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto">
-                    {otherProjects.map((project) => (
-                        <ProjectCard key={project.name} project={project} compact />
+                <Reveal as="h3" className="mb-4 mt-16 text-xl font-bold">
+                    {t.projects.other}
+                </Reveal>
+                <div className="grid gap-4 md:grid-cols-2">
+                    {otherProjects.map((project, i) => (
+                        <ProjectCard key={project.name} project={project} delay={i * 100} compact />
                     ))}
                 </div>
             </div>

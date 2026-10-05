@@ -4,24 +4,22 @@ import TechBadge from "./TechBadge";
 
 export default function TechStack() {
     const { t } = useLanguage();
+    const rows = [
+        { label: t.stack.heading, items: primaryStack, size: "md" as const },
+        { label: t.stack.alsoUsed, items: alsoUsedStack, size: "sm" as const },
+    ];
     return (
-        <div className="flex flex-col items-center gap-4">
-            <div className="flex flex-col items-center gap-2">
-                <h2 className="text-lg font-bold text-gray-800 dark:text-white">{t.stack.heading}</h2>
-                <ul className="flex flex-wrap justify-center gap-2">
-                    {primaryStack.map((name) => (
-                        <TechBadge key={name} name={name} />
-                    ))}
-                </ul>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-                <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">{t.stack.alsoUsed}</h3>
-                <ul className="flex flex-wrap justify-center gap-2">
-                    {alsoUsedStack.map((name) => (
-                        <TechBadge key={name} name={name} size="sm" />
-                    ))}
-                </ul>
-            </div>
+        <div className="flex flex-col gap-3.5 border-t border-gray-300 pt-7 dark:border-gray-700">
+            {rows.map((row) => (
+                <div key={row.label} className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                    <h2 className="w-24 shrink-0 text-[13px] font-bold text-gray-600 dark:text-gray-300">{row.label}</h2>
+                    <ul className="flex flex-wrap gap-2">
+                        {row.items.map((name) => (
+                            <TechBadge key={name} name={name} size={row.size} />
+                        ))}
+                    </ul>
+                </div>
+            ))}
         </div>
     );
 }

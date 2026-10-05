@@ -1,75 +1,69 @@
+import { FiArrowUpRight } from "react-icons/fi";
 import type { CaseStudy as CaseStudyData } from "../types/project";
 import { useLanguage } from "../i18n/language";
 import TechBadge from "./TechBadge";
 import PhoneFrame from "./PhoneFrame";
-import { FiExternalLink } from "react-icons/fi";
+import Reveal from "./Reveal";
+
+const phoneTilts = ["left", "none", "right"] as const;
 
 export default function CaseStudy({ study }: { study: CaseStudyData }) {
     const { t, l } = useLanguage();
     const headingId = `case-study-${study.name.toLowerCase()}`;
 
     return (
-        <article
-            aria-labelledby={headingId}
-            className="text-left bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg p-6 sm:p-10"
+        <Reveal
+            as="article"
+            className="rounded-3xl bg-white p-6 shadow-2xl shadow-ink/10 transition-colors duration-500 dark:bg-gray-900 sm:p-12"
         >
-            <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-300">
-                {t.projects.featured}
-            </p>
-            <h3 id={headingId} className="mt-1 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-                {study.name}
-            </h3>
-            <p className="mt-1 text-lg text-gray-700 dark:text-gray-200">{l(study.tagline)}</p>
-            <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-600 dark:text-gray-300">
-                <span>{l(study.status)}</span>
-            </p>
-            {study.prototypeUrl && (
-                <a
-                    href={study.prototypeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 hover:text-white transition-colors"
-                >
-                    <FiExternalLink aria-hidden="true" />
-                    {t.caseStudy.viewPrototype}
-                    <span className="sr-only"> ({t.projects.newTab})</span>
-                </a>
-            )}
+            <div className="grid items-start gap-12 lg:grid-cols-2">
+                <div>
+                    <p className="text-[13px] font-bold uppercase tracking-[0.12em] text-blue-700 dark:text-blue-300">{t.projects.featured}</p>
+                    <h3 id={headingId} className="mt-2 text-[32px] font-extrabold tracking-tight sm:text-[40px]">
+                        {study.name}
+                    </h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-300">{l(study.tagline)}</p>
+                    <p className="mb-5 mt-4 text-sm text-gray-600 dark:text-gray-300">{l(study.status)}</p>
+                    {study.prototypeUrl && (
+                        <a
+                            href={study.prototypeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-blue-600 px-5 font-bold text-white shadow-lg shadow-blue-600/30 transition hover:-translate-y-px hover:bg-blue-700 active:scale-[0.97]"
+                        >
+                            {t.caseStudy.viewPrototype}
+                            <FiArrowUpRight className="text-lg" aria-hidden="true" />
+                            <span className="sr-only"> ({t.projects.newTab})</span>
+                        </a>
+                    )}
 
-            <div className="mt-8 grid gap-8 lg:grid-cols-2">
-                <div className="space-y-6">
-                    <section>
-                        <h4 className="font-semibold text-gray-900 dark:text-white">{t.caseStudy.problem}</h4>
-                        <p className="mt-1 text-gray-700 dark:text-gray-200">{l(study.problem)}</p>
-                    </section>
-                    <section>
-                        <h4 className="font-semibold text-gray-900 dark:text-white">{t.caseStudy.role}</h4>
-                        <p className="mt-1 text-gray-700 dark:text-gray-200">{l(study.role)}</p>
-                    </section>
-                    <section>
-                        <h4 className="font-semibold text-gray-900 dark:text-white">{t.caseStudy.stack}</h4>
-                        <ul className="mt-2 flex flex-wrap gap-2">
-                            {study.stack.map((name) => (
-                                <TechBadge key={name} name={name} size="sm" />
-                            ))}
-                        </ul>
-                    </section>
+                    <h4 className="mt-7 font-bold">{t.caseStudy.problem}</h4>
+                    <p className="mt-1.5">{l(study.problem)}</p>
+
+                    <h4 className="mt-6 font-bold">{t.caseStudy.role}</h4>
+                    <p className="mt-1.5">{l(study.role)}</p>
+
+                    <h4 className="mt-6 font-bold">{t.caseStudy.stack}</h4>
+                    <ul className="mt-2 flex flex-wrap gap-1.5">
+                        {study.stack.map((name) => (
+                            <TechBadge key={name} name={name} size="sm" />
+                        ))}
+                    </ul>
                 </div>
 
-            </div>
-
-            {study.screenshots.length > 0 && (
-                <section className="mt-10">
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{t.caseStudy.screenshots}</h4>
-                    <div className="mt-4 flex gap-6 overflow-x-auto pb-4 snap-x" tabIndex={0} aria-label={t.caseStudy.screenshots}>
-                        {study.screenshots.map((img) => (
-                            <div key={img.src} className="snap-start">
-                                <PhoneFrame image={img} />
-                            </div>
-                        ))}
+                {study.screenshots.length > 0 && (
+                    <div>
+                        <h4 className="sr-only">{t.caseStudy.screenshots}</h4>
+                        <ul className="flex items-start justify-center gap-2.5 pb-8 pt-2 sm:gap-[18px] lg:pt-5">
+                            {study.screenshots.map((image, i) => (
+                                <Reveal as="li" key={image.src} delay={i * 120} className="w-[31%] max-w-[172px]">
+                                    <PhoneFrame image={image} tilt={phoneTilts[i % phoneTilts.length]} />
+                                </Reveal>
+                            ))}
+                        </ul>
                     </div>
-                </section>
-            )}
-        </article>
+                )}
+            </div>
+        </Reveal>
     );
 }

@@ -7,11 +7,14 @@ type TechBadgeProps = {
 
 /** A technology name with its icon. Render inside a list. */
 export default function TechBadge({ name, size = "md" }: TechBadgeProps) {
-    const sizing = size === "md" ? "px-3 py-1.5 text-sm" : "px-2.5 py-1 text-xs";
+    const style =
+        size === "md"
+            ? "px-3 py-[7px] text-sm font-semibold bg-white shadow-sm hover:-translate-y-0.5 hover:shadow-md dark:bg-gray-900/60"
+            : "px-2.5 py-1 text-[12.5px] font-medium bg-gray-100 dark:bg-gray-800";
     return (
-        <li className={`flex items-center gap-1.5 ${sizing} bg-white dark:bg-gray-900/50 rounded-lg shadow-sm font-medium text-gray-700 dark:text-gray-100`}>
-            <span className={size === "md" ? "text-lg" : "text-base"} aria-hidden="true">
-                {techIcons[name] ?? <span className="block w-3 h-3 bg-gray-300 rounded-full" />}
+        <li className={`flex items-center gap-1.5 rounded-lg text-ink transition duration-200 dark:text-gray-100 ${style}`}>
+            <span className={size === "md" ? "text-lg" : "text-[15px]"} aria-hidden="true">
+                {techIcons[name] ?? <span className="block h-2 w-2 rounded-full bg-blue-600" />}
             </span>
             {name}
         </li>
