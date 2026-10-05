@@ -11,6 +11,7 @@ export const techIcons: Record<string, JSX.Element> = {
     "React": <FaReact className="text-cyan-500" />,
     "React Native": <TbBrandReactNative className="text-cyan-500" />,
     "Expo": <SiExpo className="text-gray-900 dark:text-white" />,
+    "EAS Build": <SiExpo className="text-gray-900 dark:text-white" />,
     "TypeScript": <SiTypescript className="text-blue-600" />,
     "Next.js": <SiNextdotjs className="text-gray-900 dark:text-white" />,
     "Tailwind": <SiTailwindcss className="text-cyan-500" />,
