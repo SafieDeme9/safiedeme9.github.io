@@ -28,6 +28,8 @@ export type CaseStudy = {
     problem: Localized;
     role: Localized;
     stack: string[];
+    /** Public, clearly-labelled design prototype (sample data only). */
+    prototypeUrl?: string;
     challenges: { title: Localized; body: Localized }[];
     /** Sanitised phone screenshots only; never real user data. */
     screenshots: ProjectImage[];

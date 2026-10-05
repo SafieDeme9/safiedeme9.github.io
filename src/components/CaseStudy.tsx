@@ -3,6 +3,7 @@ import { useLanguage } from "../i18n/language";
 import TechBadge from "./TechBadge";
 import PhoneFrame from "./PhoneFrame";
 import { FaLock } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function CaseStudy({ study }: { study: CaseStudyData }) {
     const { t, l } = useLanguage();
@@ -26,6 +27,18 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
                     <FaLock aria-hidden="true" /> {t.projects.privateRepo}
                 </span>
             </p>
+            {study.prototypeUrl && (
+                <a
+                    href={study.prototypeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 hover:text-white transition-colors"
+                >
+                    <FiExternalLink aria-hidden="true" />
+                    {t.caseStudy.viewPrototype}
+                    <span className="sr-only"> ({t.projects.newTab})</span>
+                </a>
+            )}
 
             <div className="mt-8 grid gap-8 lg:grid-cols-2">
                 <div className="space-y-6">

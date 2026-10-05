@@ -42,6 +42,7 @@ const en = {
         stack: "Stack",
         challenges: "Key decisions & challenges",
         screenshots: "Screenshots",
+        viewPrototype: "View interactive prototype",
     },
     experience: {
         heading: "Experience",
@@ -105,6 +106,7 @@ const it: Dictionary = {
         stack: "Tecnologie",
         challenges: "Scelte e sfide principali",
         screenshots: "Schermate",
+        viewPrototype: "Apri il prototipo interattivo",
     },
     experience: {
         heading: "Esperienza",

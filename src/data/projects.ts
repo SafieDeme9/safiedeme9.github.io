@@ -20,6 +20,7 @@ export const maguette: CaseStudy = {
     it: "Ho guidato e supervisionato lo sviluppo (AI-assisted): ho scritto le specifiche, preso le decisioni di architettura e revisionato tutto il codice generato, poi l'ho testato e ho corretto i bug. Gestisco le build di test Android e iOS con EAS Build e traduco in task tecnici i requisiti dei team clinico, legale, contenuti e operations.",
   },
   stack: ["React Native", "Expo", "TypeScript", "Supabase", "EAS Build"],
+  prototypeUrl: "https://maguette-prototype.vercel.app/",
   challenges: [
     {
       title: { en: "Offline and poor connectivity", it: "Connessione assente o instabile" },
