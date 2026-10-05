@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  /* clip (not hidden): hidden turns body into a scroll container, which breaks the sticky header. */
   html,
   body {
-    @apply overflow-x-hidden;
+    overflow-x: clip;
   }
 
   :root {
