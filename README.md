@@ -2,7 +2,7 @@
 
 Source of my personal portfolio: **https://safietoudeme.com**
 
-A single-page site presenting my frontend and mobile work (React, Next.js, React Native / Expo, Supabase), my experience and how to reach me. It is available in English and Italian, with light and dark themes.
+A single-page site presenting my work as a fullstack developer, on the web and on mobile (React, Next.js, React Native / Expo, Supabase), my experience and how to reach me. It is available in English and Italian, with light and dark themes.
 
 ## Stack
 
