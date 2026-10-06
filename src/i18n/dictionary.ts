@@ -49,7 +49,7 @@ const en = {
         role: "My role",
         stack: "Stack",
         screenshots: "Screenshots",
-        viewPrototype: "View interactive prototype",
+        viewPrototype: "Request a demo",
     },
     contact: {
         eyebrow: "03 · Contact",
@@ -113,7 +113,7 @@ const it: Dictionary = {
         role: "Il mio ruolo",
         stack: "Tecnologie",
         screenshots: "Schermate",
-        viewPrototype: "Apri il prototipo interattivo",
+        viewPrototype: "Richiedi un demo",
     },
     contact: {
         eyebrow: "03 · Contatti",
