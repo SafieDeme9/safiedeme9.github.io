@@ -49,6 +49,8 @@ const en = {
         role: "My role",
         stack: "Stack",
         screenshots: "Screenshots",
+        requestDemo: "Request a demo",
+        demoSubject: "Maguette demo request",
     },
     contact: {
         eyebrow: "03 · Contact",
@@ -112,6 +114,8 @@ const it: Dictionary = {
         role: "Il mio ruolo",
         stack: "Tecnologie",
         screenshots: "Schermate",
+        requestDemo: "Richiedi una demo",
+        demoSubject: "Richiesta demo Maguette",
     },
     contact: {
         eyebrow: "03 · Contatti",

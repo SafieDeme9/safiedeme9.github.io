@@ -29,6 +29,7 @@ export const maguette: CaseStudy = {
     it: "Guido lo sviluppo: ho scritto le specifiche, preso le decisioni di architettura, revisiono ogni modifica, testo e correggo i bug. Gestisco le build di test Android e iOS con EAS Build e traduco in task tecnici i requisiti dei team clinico, legale, contenuti e operations.",
   },
   stack: ["React Native", "Expo", "TypeScript", "Supabase"],
+  demoEmail: "sdeme1201@gmail.com",
   screenshots: [
     phoneShot("maguette-language.webp", "Maguette: language selection screen", "Maguette: schermata di scelta della lingua"),
     phoneShot("maguette-home.webp", "Maguette: home screen", "Maguette: schermata principale"),
