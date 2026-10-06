@@ -1,4 +1,4 @@
-import { FiArrowUpRight } from "react-icons/fi";
+import { MdMailOutline } from "react-icons/md";
 import type { CaseStudy as CaseStudyData } from "../types/project";
 import { useLanguage } from "../i18n/language";
 import TechBadge from "./TechBadge";
@@ -24,16 +24,13 @@ export default function CaseStudy({ study }: { study: CaseStudyData }) {
                     </h3>
                     <p className="text-lg text-gray-600 dark:text-gray-300">{l(study.tagline)}</p>
                     <p className="mb-5 mt-4 text-sm text-gray-600 dark:text-gray-300">{l(study.status)}</p>
-                    {study.prototypeUrl && (
+                    {study.demoEmail && (
                         <a
-                            href={study.prototypeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href={`mailto:${study.demoEmail}?subject=${encodeURIComponent(t.caseStudy.demoSubject)}`}
                             className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-blue-600 px-5 font-bold text-white shadow-lg shadow-blue-600/30 transition hover:-translate-y-px hover:bg-blue-700 active:scale-[0.97]"
                         >
-                            {t.caseStudy.viewPrototype}
-                            <FiArrowUpRight className="text-lg" aria-hidden="true" />
-                            <span className="sr-only"> ({t.projects.newTab})</span>
+                            <MdMailOutline className="text-xl" aria-hidden="true" />
+                            {t.caseStudy.requestDemo}
                         </a>
                     )}
 

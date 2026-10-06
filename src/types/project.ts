@@ -28,8 +28,8 @@ export type CaseStudy = {
     problem: Localized;
     role: Localized;
     stack: string[];
-    /** Public, clearly-labelled design prototype (sample data only). */
-    prototypeUrl?: string;
+    /** Address the "Request a demo" (mail) button writes to. */
+    demoEmail?: string;
     /** Phone screenshots from the public prototype; never real user data. */
     screenshots: ProjectImage[];
 };
