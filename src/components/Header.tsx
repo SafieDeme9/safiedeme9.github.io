@@ -4,6 +4,7 @@ import { useLanguage } from "../i18n/language";
 import { useActiveSection } from "../hooks/useActiveSection";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
+import TechnologistLogo from "./TechnologistLogo";
 
 // "top" (the hero) is observed too so no link stays highlighted once you scroll back up.
 const SECTION_IDS = ["top", "Experience", "Projects", "Contact"] as const;
@@ -36,11 +37,10 @@ export default function Header() {
         <header className="sticky top-0 z-50 w-full border-b border-gray-300 bg-white/90 backdrop-blur transition-colors duration-500 dark:border-gray-700 dark:bg-gray-900/90">
             <nav aria-label={t.nav.main} className="mx-auto max-w-5xl px-5 sm:px-8">
                 <div className="flex h-[72px] items-center justify-between gap-3">
-                    <a
-                        href="#top"
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-blue-600 text-[15px] font-extrabold text-white"
-                    >
-                        SD<span className="sr-only">: {t.nav.home}</span>
+                    <a href="#top" className="logo relative flex h-11 w-11 shrink-0 items-center justify-center">
+                        <TechnologistLogo />
+                        <span className="logo-bubble" aria-hidden="true">&lt;/&gt;</span>
+                        <span className="sr-only">{t.nav.home}</span>
                     </a>
 
                     <ul className="hidden items-center gap-7 md:flex">

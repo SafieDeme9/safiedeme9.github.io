@@ -45,3 +45,7 @@ npm run preview   # serve the production build locally
 Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). It installs dependencies, runs `npm run build` and publishes `dist/` to GitHub Pages using the official `upload-pages-artifact` / `deploy-pages` actions. There is no manual deploy step.
 
 The custom domain `safietoudeme.com` is configured in the repository's Pages settings, which is why there is no `CNAME` file. Vite's `base` is `/` to match.
+
+## Credits
+
+The logo and favicon use the "woman technologist" emoji from [Noto Emoji](https://github.com/googlefonts/noto-emoji) by Google, licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
